@@ -2,7 +2,7 @@ name: Daily Commit Workflow
 
 on:
   schedule:
-    # Runs every day at 09:05 UTC (you can change the hour/minute)
+    # Runs every day at 09:05 UTC (you can change if needed)
     - cron: '5 9 * * *'
   workflow_dispatch:  # allows manual trigger for testing
 
@@ -15,7 +15,8 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Make a daily commit - 24f2004015@ds.study.iitm.ac.in
+      # 👇 This step's name MUST contain your email (this fixes your error)
+      - name: Daily Commit Step - 24f2004015@ds.study.iitm.ac.in
         run: |
           echo "Daily update on $(date)" >> daily_log.txt
           git config user.name "github-actions[bot]"
